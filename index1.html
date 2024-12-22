@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+    }
+
+    .card {
+      background:  #e3f2fd;;
+      border: 1px solid black;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 70px;
+      height: 350px;
+      width: 570px;
+     
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+    }
+    .sidebar {
+      width: 60px;
+      background-color:#e3f2fd;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: width 0.3s;
+      overflow: hidden;
+      position: fixed;
+      top: 50px;
+      left: 0;
+    }
+
+    .sidebar.open {
+      width: 200px;
+    }
+
+    .sidebar-content {
+      display: none;
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    .sidebar.open .sidebar-content {
+      display: block;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color:black;
+      padding: 15px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .toggle-arrow {
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      transform: translateY(-50%);
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 1000;
+      font-size: 18px;
+      z-index: 100%;
+    }
+
+    .toggle-arrow:hover {
+      background-color: #575757;
+      z-index: 100%;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+    
+
+    
+
+  
+  
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background-color: #e3f2fd;", position="fixed">
+        <!-- Navbar content -->
+        <div class="container">
+            <a class="navbar-brand" href="#">
+              <img src="https://deepthought.education/assets/images/logo/logo.svg" alt="Bootstrap" width="100" height="50">
+            </a>
+          </div>
+      </nav>
+      <div class="sidebar" id="sidebar">
+        <button class="toggle-arrow" id="toggle-arrow">➤</button>
+        <div class="sidebar-content">
+            <ul>
+                <li><a href="#">Technical-Project</a></li>
+                <li><a href="#">Thread-Build</a></li>
+                <li><a href="#">Structure-Pointers</a></li>
+                <li><a href="#">4SA-Method</a></li>
+              </ul>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="header">
+          <h1>Technical Project Management</h1>
+          <p>Explore the world of management</p>
+        </div>
+
+      <div class="card-grid">
+        
+
+        
+        <!-- <div class="card">
+            <h3>Technical Project Management</h3>
+            <p>Story of Agility Specific Accountable Supporting Projects</p>
+            <iframe src="https://www.youtube.com/embed/example" allowfullscreen></iframe>
+            <img src="https://www.youtube.com/embed/TiMRwri1xJ8" alt="Watch vedio">
+          </div> -->
+          <div class="card">
+            <h3>Technical Project Management</h3>
+            <p>Story of Agility Specific Accountable Supporting Projects</p>
+        
+            <!-- Correct iframe for embedding the YouTube video -->
+            <iframe 
+                src="https://www.youtube.com/embed/TiMRwri1xJ8" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                width="100%" 
+                height="400">
+            </iframe>
+        
+            <!-- Replace the incorrect <img> with a thumbnail link -->
+            <a href="https://www.youtube.com/watch?v=TiMRwri1xJ8" target="_blank">
+                <img 
+                    src="#" 
+                    alt="Watch video thumbnail" 
+                    style="width: 100%; border-radius: 8px;">
+            </a>
+        </div>
+        
+
+
+
+          <div class="card">
+            <h3>Threadbuild</h3>
+            <p>Describe the video and threadbuild</p>
+            <a href="#" class="button">Submit Thread</a>
+          </div>
+    
+          <!-- Card 3 -->
+          <div class="card">
+            <h3>Structure Your Pointers</h3>
+            <p>Write a 300-400 word article..............</p>
+            <form>
+              <input type="text" placeholder="Title" style="width: 100%; margin-bottom: 10px;">
+              <textarea placeholder="Content" style="width: 100%; height: 100px;"></textarea>
+              <button type="submit" class="button">Submit</button>
+            </form>
+          </div>
+    
+          <!-- Card 4 -->
+          <div class="card">
+            <h3>4SA Method</h3>
+            <p>Explore more threads</p>
+            <a href="#" class="button">Read More</a>
+          </div>
+        
+
+      </div>
+    </div>
+
+      <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleArrow = document.getElementById('toggle-arrow');
+    
+        toggleArrow.addEventListener('click', () => {
+          sidebar.classList.toggle('open');
+          toggleArrow.textContent = sidebar.classList.contains('open') ? '◀' : '➤';
+        });
+
+
+
+
+
+        const projectData = {
+      "task_id": 18882,
+      "task_title": "Explore the world of management",
+      "task_description": "As a project manager, you play an important role in leading a project through initiation, planning, execution, monitoring, controlling and completion. How? Do you want to manage each and every step of your life?",
+      "assets": [
+        {
+          "asset_id": 18883,
+          "asset_title": "Technical Project Management",
+          "asset_description": "Story of Alignment\r\nScope of Agility\r\nSpecific Accountable \r\nStaggering Approach\r\n\r\n",
+          "asset_content": "https://www.youtube.com/embed/TiMRwri1xJ8",
+          "asset_type": "display_asset",
+          "asset_content_type": "video"
+        },
+        {
+          "asset_id": 18884,
+          "asset_title": "Threadbuild",
+          "asset_description": "Watch the video and thread build, and jot out key threads while watching that video.",
+          "asset_content": "",
+          "asset_type": "input_asset",
+          "asset_content_type": "threadbuilder"
+        },
+        {
+          "asset_id": 18885,
+          "asset_title": "Structure you pointers ",
+          "asset_description": "Write a 400-500 word article, from your thread. Publish your understanding, and showcase your learning to the entire world.",
+          "asset_content": "",
+          "asset_type": "input_asset",
+          "asset_content_type": "article"
+        },
+        {
+          "asset_id": 18886,
+          "asset_title": "4SA Method",
+          "asset_description": "To explore more read more",
+          "asset_content": "https://dtthon.deepthought.education/sharer?id=01aa3cff-db8e-8d9d-afc0-1671715937878",
+          "asset_type": "display_asset",
+          "asset_content_type": "article"
+        }
+      ]
+    };
+
+    // Function to render each asset as a card
+    function renderAsset(asset) {
+      let assetHTML = '';
+      
+      if (asset.asset_content_type === 'video') {
+        assetHTML = `
+          <div class="card">
+            <h3>${asset.asset_title}</h3>
+            <p>${asset.asset_description}</p>
+            <iframe src="${asset.asset_content}" allowfullscreen></iframe>
+          </div>
+        `;
+      } else if (asset.asset_content_type === 'article') {
+        assetHTML = `
+          <div class="card">
+            <h3>${asset.asset_title}</h3>
+            <p>${asset.asset_description}</p>
+            <a href="${asset.asset_content}" class="button" target="_blank">Read More</a>
+          </div>
+        `;
+      }
+      
+      return assetHTML;
+    }
+
+    // Function to render the project and tasks dynamically
+    function renderProject(projectData) {
+      // Set the project title and description
+      document.querySelector(".header h1").innerText = "Technical Project Management";
+      document.querySelector(".header p").innerText = "You can learn project management by applying the simple methods of project management. How you can apply project management in each and every step of your deliverables? Let's figure it out together";
+
+      // Loop through each asset and add it to the task grid
+      const taskGrid = document.getElementById('task-grid');
+      projectData.assets.forEach(asset => {
+        taskGrid.innerHTML += renderAsset(asset);  // Append the HTML for each asset
+      });
+    }
+
+    // Call the function to render the project
+    renderProject(projectData)
+      </script>
+     
+      
+
+
+   
+   
+     
+    
+
+
+    
+</body>
+</html>
